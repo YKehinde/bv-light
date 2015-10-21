@@ -1,0 +1,123 @@
+/**
+ * Top Nav
+ * =================================
+ */
+
+.topnav {
+    background: #fff;
+    box-shadow: 0 0 10px #D8D8D8;
+    line-height: 64px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 68px
+}
+
+.topnav .container {
+    position: static;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+#toggle-menu,
+.social-link {
+    font-size: 2.4rem
+}
+
+.logo-nav {
+    float: left;
+    position: relative;
+    top: 10px
+}
+
+.logo-nav a {
+    width: 128px
+}
+
+.icon-towergate-logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 140px;
+}
+
+.links {
+    float: right
+}
+
+.links a {
+    color: #0e2d6d;
+    margin: 0 12px 1.5rem;
+    vertical-align: middle;
+    display: block
+}
+
+.links a:hover {
+    text-decoration: underline
+}
+
+.menu {
+    background: #fff;
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    line-height: 1.5;
+    left: 0;
+    text-align: right;
+    &.in {
+        display: block;
+    }
+}
+
+#toggle-menu {
+    margin: 0;
+    position: relative;
+    top: 20px;
+
+    img {
+        width: 30px;
+        vertical-align: top;
+    }
+}
+
+#nav-select,
+.ie10-only {
+    display: none
+}
+
+@include respond-min($bp-mid) {
+    .menu,
+    .topnav {
+        line-height: 64px
+    }
+    #toggle-menu {
+        display: none
+    }
+    #nav-select,
+    .links,
+    .links a,
+    .menu {
+        display: inline-block
+    }
+    .menu {
+        position: static;
+        width: auto;
+        text-align: left
+    }
+    .topnav .logo a {
+        width: 100%
+    }
+    .links,
+    .links a {
+        margin-bottom: 0
+    }
+    #nav-select {
+        background: #e9e9e9;
+        border: 1px solid #ccc;
+        color: #666;
+        vertical-align: middle;
+        margin-right: 12px
+    }
+}

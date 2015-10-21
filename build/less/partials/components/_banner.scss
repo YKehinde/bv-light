@@ -1,0 +1,34 @@
+/**
+ * Banner
+ * =================================
+	
+ */
+
+
+.banner {
+	background-color: $blue;
+	max-width: 56%;
+	// margin-top: 50px;
+	padding: 11px 0 11px;
+	position: relative;
+
+
+	span {
+		color: #fff;
+		font-size: 1.5rem;
+		font-weight: 100;
+		margin: 2rem 2rem;
+	}
+
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 27px 20px 27px 0;
+		border-color: transparent #ffffff transparent transparent;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
