@@ -1,0 +1,15 @@
+footer {
+	background: $dark-blue;
+	color: #fff;
+	width: 100%;
+
+	.footer-title {
+		background: $blue;
+		padding: 10px 0;
+		text-align: center;
+	}
+
+	.footer-copy {
+		// font-size: 0.8rem;
+	}
+}

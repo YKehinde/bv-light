@@ -1,0 +1,19 @@
+{
+  "name": "bv-light",
+  "version": "1.0.0",
+  "description": "A lightweight framework for building infographics. Initial build by Yemi Kehinde and maintained by developers at BuiltVisible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Yemi Kehinde",
+  "license": "MIT"
+}
