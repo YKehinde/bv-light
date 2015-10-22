@@ -94,7 +94,7 @@ gulp.task('serve', ['less'], function() {
     gulp.watch(paths.styles.src + '**/*', ['less']).on('change', browserSync.reload);
     gulp.watch(paths.js.src + '**/*', ['js']).on('change', browserSync.reload);
     gulp.watch(paths.images.src + '**/*', ['icons', 'imagemin']);
-    gulp.watch("*.html").on('change', browserSync.reload + 'waiting...');
+    gulp.watch("*.html").on('change', browserSync.reload);
 });
 
 // Less task to compile and minify CSS
