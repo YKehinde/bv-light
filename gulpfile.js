@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     newer = require('gulp-newer'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cached'),
+    autoprefixer = require('gulp-autoprefixer'),
     mozjpeg = require('imagemin-mozjpeg'),
     pngquant = require('imagemin-pngquant'),
     gulpicon = require("gulpicon/tasks/gulpicon"),
@@ -124,10 +125,30 @@ gulp.task('less', function() {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
 });
+
+//Styleguide
+gulp.task('styleguide', function() {
+    return gulp.src(paths.styles.src + 'styleguide.less')
+        .pipe(sourcemaps.init())
+        .pipe(less({
+            paths: [path.join(__dirname, 'less', 'includes')]
+        }))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./assets/dist/'))
+        // .pipe(browserSync.stream());
+})
 
 // BrowserSync - local server
 gulp.task('serve', ['less', 'js', 'icons', 'copy-files'], function() {
@@ -142,6 +163,7 @@ gulp.task('serve', ['less', 'js', 'icons', 'copy-files'], function() {
     gulp.watch(paths.images.src + '**/*', ['imagemin']);
     gulp.watch(paths.icons.src + '**/*', ['icons']);
     gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("**/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve']);
