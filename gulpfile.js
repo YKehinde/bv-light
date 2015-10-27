@@ -3,22 +3,22 @@ var gulp = require('gulp'),
         pattern: '*',
         camelize: true
     }),
-    glob = require("glob"),
-    gutil = require('gulp-util'),
-    less = require('gulp-less'),
-    path = require('path'),
-    uglify = require('gulp-uglify'),
-    newer = require('gulp-newer'),
-    imagemin = require('gulp-imagemin'),
-    cache = require('gulp-cached'),
     autoprefixer = require('gulp-autoprefixer'),
-    mozjpeg = require('imagemin-mozjpeg'),
-    pngquant = require('imagemin-pngquant'),
-    gulpicon = require("gulpicon/tasks/gulpicon"),
     browserSync = require('browser-sync').create(),
-    sourcemaps = require('gulp-sourcemaps'),
+    cache = require('gulp-cached'),
     clean = require('gulp-clean'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    glob = require("glob"),
+    gulpicon = require("gulpicon/tasks/gulpicon"),
+    gutil = require('gulp-util'),
+    imagemin = require('gulp-imagemin'),
+    less = require('gulp-less'),
+    mozjpeg = require('imagemin-mozjpeg'),
+    newer = require('gulp-newer'),
+    path = require('path'),
+    pngquant = require('imagemin-pngquant'),
+    sourcemaps = require('gulp-sourcemaps'),
+    uglify = require('gulp-uglify');
 
 var basePaths = {
         src: './assets/src/',
@@ -135,7 +135,7 @@ gulp.task('less', function() {
 });
 
 //Styleguide
-gulp.task('styleguide', function() {
+gulp.task('styleguide', function(){
     return gulp.src(paths.styles.src + 'styleguide.less')
         .pipe(sourcemaps.init())
         .pipe(less({
@@ -146,8 +146,8 @@ gulp.task('styleguide', function() {
             cascade: false
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./assets/dist/'))
-        // .pipe(browserSync.stream());
+        .pipe(gulp.dest(paths.styles.dest))
+        .pipe(browserSync.stream());
 })
 
 // BrowserSync - local server
@@ -156,9 +156,10 @@ gulp.task('serve', ['less', 'js', 'icons', 'copy-files'], function() {
         server: {
             baseDir: "./"
         }
-    });
+    })
 
     gulp.watch(paths.styles.src + '**/*', ['less']).on('change', browserSync.reload);
+    gulp.watch(paths.styles.src + '**/*', ['styleguide']).on('change', browserSync.reload);
     gulp.watch(paths.js.src + '**/*', ['js']).on('change', browserSync.reload);
     gulp.watch(paths.images.src + '**/*', ['imagemin']);
     gulp.watch(paths.icons.src + '**/*', ['icons']);
