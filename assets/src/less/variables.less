@@ -63,10 +63,20 @@
 @bp-wide              : 992;  // Set in px
 @bp-huge              : 1600; // Set in px
 
+// Media Queries
+ @md-narrow: 	~"only screen and (min-width: 400px)";
+@md-mid:      	~"only screen and (min-width: 768px)";
+@md-wide:     	~"only screen and (min-width: 992px)";
+@md-huge:  	~"only screen and (min-width: 1600px)";
+
 // Special breakpoints
 @bp-single-col        : @bp-mid; // Break to single column (used in the grid)
 @bp-block-grid-narrow : @bp-narrow; // Breakpoint for narrow block grids
 @bp-rwd-text          : @bp-mid; // Reduce text size below this width
+
+@md-single-col        : @md-mid; // Break to single column (used in the grid)
+@md-block-grid-narrow : @md-narrow; // Breakpoint for narrow block grids
+@md-rwd-text          : @md-mid; // Reduce text size below this width
 
 
 

@@ -8,6 +8,11 @@
 
 		BV.Config.init();
 
+		$("#toggle-menu").click(function(e) {
+		    e.preventDefault(),
+		        $("#menu").toggleClass("in")
+		});
+
 	});// END DOC READY
 
 

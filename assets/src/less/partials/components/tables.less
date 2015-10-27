@@ -16,17 +16,17 @@
 /**
  * Define associated Table variables
  */
-$table-bgColor                : $color-bg !default; // Default background color used for all tables.
-$table-bgColor--accent        : #f9f9f9 !default; // Background color used for `.table-striped`.
-$table-bgColor--hover         : #f5f5f5 !default; // Background color used for `.table-hover`.
-$table-bgColor--active        : $table-bgColor--hover !default;
-$table-borderColor           : #ddd !default; // Border color for table and cell borders.
+@table-bgColor                : @color-bg ; // Default background color used for all tables.
+@table-bgColor--accent        : #f9f9f9 !default; // Background color used for `.table-striped`.
+@table-bgColor--hover         : #f5f5f5 !default; // Background color used for `.table-hover`.
+@table-bgColor--active        : @table-bgColor--hover ;
+@table-borderColor           : #ddd !default; // Border color for table and cell borders.
 
 /**
  * Customizes the `.table` component with basic values, each used across all table variations.
  */
-$table-cell-padding           : 8px !default; // Padding for `<th>`s and `<td>`s.
-$table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-condensed`.
+@table-cell-padding           : 8px !default; // Padding for `<th>`s and `<td>`s.
+@table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-condensed`.
 
 
 
@@ -34,9 +34,9 @@ $table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-co
 .table {
 	width: 100%;
 	max-width: 100%;
-	margin-bottom: $baseline;
+	margin-bottom: @baseline;
 	border-spacing: 0;
-	background-color: $table-bgColor;
+	background-color: @table-bgColor;
 
 	// Cells
 	> thead,
@@ -44,10 +44,10 @@ $table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-co
 	> tfoot {
 		> th,
 		> td {
-			padding: $table-cell-padding;
-			line-height: $baseline;
+			padding: @table-cell-padding;
+			line-height: @baseline;
 			vertical-align: top;
-			border-top: 1px solid $table-borderColor;
+			border-top: 1px solid @table-borderColor;
 		}
 	}
 
@@ -55,11 +55,11 @@ $table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-co
 	> thead th,
 	> thead td {
 		vertical-align: bottom;
-		border-bottom: 2px solid $table-borderColor;
+		border-bottom: 2px solid @table-borderColor;
 	}
 
 	> tfoot td {
-		border-top: 3px solid $table-borderColor;
+		border-top: 3px solid @table-borderColor;
 	}
 
 	// Remove top border from thead by default
@@ -76,12 +76,12 @@ $table-condensed-cell-padding : 5px !default; // Padding for cells in `.table-co
 
 	// Account for multiple tbody instances
 	> tbody + tbody {
-		border-top: 2px solid $table-borderColor;
+		border-top: 2px solid @table-borderColor;
 	}
 
 	// Nesting
 	.table {
-		background-color: $color-bg;
+		background-color: @color-bg;
 	}
 }
 
@@ -97,7 +97,7 @@ th {
 	> tfoot {
 		th,
 		td {
-			padding: $table-condensed-cell-padding;
+			padding: @table-condensed-cell-padding;
 		}
 	}
 }
@@ -107,14 +107,14 @@ th {
  * Add borders all around the table and between all the columns.
  */
 .table--bordered {
-	border: 2px solid $table-borderColor;
+	border: 2px solid @table-borderColor;
 
 	> thead,
 	> tbody,
 	> tfoot {
 		th,
 		td {
-			border: 1px solid $table-borderColor;
+			border: 1px solid @table-borderColor;
 		}
 
 		th:first-child,
@@ -176,7 +176,7 @@ th {
 .table--striped {
 	tbody :nth-child(odd) th,
 	tbody :nth-child(odd) td {
-		background-color: $table-bgColor--accent !important;
+		background-color: @table-bgColor--accent !important;
 	}
 }
 
@@ -187,7 +187,7 @@ th {
 .table--hover {
 	tr:hover {
 		td, th {
-			background-color: $table-bgColor--hover;
+			background-color: @table-bgColor--hover;
 		}
 	}
 }
@@ -201,13 +201,13 @@ th {
  * https://github.com/filamentgroup/tablesaw
  */
 .tableResponsive {
-	@include respond-max($bp-single-col) {
+	@media @md-single-col {
 		width: 100%;
-		margin-bottom: ($line-height-base * .75) + px;
+		margin-bottom: (@line-height-base * .75) + px;
 		overflow-y: hidden;
 		overflow-x: auto;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
-		border: 1px solid $table-borderColor;
+		border: 1px solid @table-borderColor;
 		-webkit-overflow-scrolling: touch;
 
 		// Tighten up spacing

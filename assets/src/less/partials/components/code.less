@@ -6,18 +6,18 @@
 /**
  * Define associated Code variables
  */
-$code-textColor               : #444;
-$code-bgColor                 : #ddd;
-$pre-textColor                : #444;
-$pre-bgColor                  : #ddd;
+@code-textColor               : #444;
+@code-bgColor                 : #ddd;
+@pre-textColor                : #444;
+@pre-bgColor                  : #ddd;
 
 // Inline and block code styles
 code,
 pre {
 	padding: 0 3px 2px;
-	font-family: $font-family-mono;
-	@include font-size($type-small);
-	color: $code-textColor;
+	font-family: @font-family-mono;
+	font-size: @type-small;
+	color: @code-textColor;
 	border-radius: 3px;
 	tab-size: 3;
 }
@@ -25,18 +25,18 @@ pre {
 // Inline code
 code {
 	padding: 2px 4px;
-	color: $code-textColor;
-	background-color: $code-bgColor;
+	color: @code-textColor;
+	background-color: @code-bgColor;
 }
 
 // Blocks of code
 pre {
 	display: block;
-	padding: $baseline / 2;
-	margin: 0 0 $baseline;
-	// line-height: $leading-base;
-	color: $pre-textColor;
-	background-color: $pre-bgColor;
+	padding: @baseline / 2;
+	margin: 0 0 @baseline;
+	// line-height: @leading-base;
+	color: @pre-textColor;
+	background-color: @pre-bgColor;
 	border-radius: 4px;
 	white-space: pre;
 	// white-space: pre-wrap;
@@ -46,8 +46,8 @@ pre {
 	// Account for some code outputs that place code tags in pre tags
 	code {
 		padding: 0;
-		color: $pre-textColor;
-		background-color: $pre-bgColor;
+		color: @pre-textColor;
+		background-color: @pre-bgColor;
 		border: 0;
 	}
 }

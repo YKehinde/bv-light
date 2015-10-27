@@ -10,56 +10,41 @@
     <title>BV-light Styleguide</title>
     <meta name="description" content="A simple styleguide to use with your project">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Built with Kickoff - trykickoff.github.io -->
-    <!--[if lte IE 8]>
-			<link rel="stylesheet" href="/assets/dist/css/kickoff-old-ie.css">
-		<![endif]-->
-    <!--[if gt IE 8]><!-->
+    
     <link rel="stylesheet" href="/assets/dist/css/bv-light.css">
-    <!--<![endif]-->
+
     <link rel="stylesheet" href="/assets/dist/css/styleguide.css">
     <!-- Grunticon SVG detection script. http://github.com/filamentgroup/ Remove if not using Grunticon. -->
     <script>
-    (function(e) {
-        function t(t, n, r, o) {
-            "use strict";
-
-            function a() {
-                for (var e, t = 0; m.length > t; t++) m[t].href && m[t].href.indexOf(i.href) > -1 && (e = !0);
-                e ? i.media = r || "all" : setTimeout(a)
-            }
-            var i = e.document.createElement("link"),
-                c = n || e.document.getElementsByTagName("script")[0],
-                m = e.document.styleSheets;
-            return i.rel = "stylesheet", i.href = t, i.media = "only x", o && (i.onload = o), c.parentNode.insertBefore(i, c), a(), i
-        }
-        var n = function(r, o) {
-            "use strict";
-            if (r && 3 === r.length) {
-                var a = e.navigator,
-                    i = e.Image,
-                    c = !(!document.createElementNS || !document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect || !document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1") || e.opera && -1 === a.userAgent.indexOf("Chrome") || -1 !== a.userAgent.indexOf("Series40")),
-                    m = new i;
-                m.onerror = function() {
-                    n.method = "png", n.href = r[2], t(r[2])
-                }, m.onload = function() {
-                    var e = 1 === m.width && 1 === m.height,
-                        a = r[e && c ? 0 : e ? 1 : 2];
-                    n.method = e && c ? "svg" : e ? "datapng" : "png", n.href = a, t(a, null, null, o)
-                }, m.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==", document.documentElement.className += " grunticon"
-            }
-        };
-        n.loadCSS = t, e.grunticon = n
-    })(this);
-    grunticon(["/assets/dist/img/icons/icons.data.svg.css", "/assets/dist/img/icons/icons.data.png.css", "/assets/dist/img/icons/icons.fallback.css"]);
-    </script>
-    <noscript>
-        <link href="/assets/dist/img/icons/icons.fallback.css" rel="stylesheet">
-    </noscript>
+            (function(e){function t(t,n,r,o){"use strict";function a(){for(var e,t=0;m.length>t;t++)m[t].href&&m[t].href.indexOf(i.href)>-1&&(e=!0);e?i.media=r||"all":setTimeout(a)}var i=e.document.createElement("link"),c=n||e.document.getElementsByTagName("script")[0],m=e.document.styleSheets;return i.rel="stylesheet",i.href=t,i.media="only x",o&&(i.onload=o),c.parentNode.insertBefore(i,c),a(),i}var n=function(r,o){"use strict";if(r&&3===r.length){var a=e.navigator,i=e.Image,c=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===a.userAgent.indexOf("Chrome")||-1!==a.userAgent.indexOf("Series40")),m=new i;m.onerror=function(){n.method="png",n.href=r[2],t(r[2])},m.onload=function(){var e=1===m.width&&1===m.height,a=r[e&&c?0:e?1:2];n.method=e&&c?"svg":e?"datapng":"png",n.href=a,t(a,null,null,o)},m.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};n.loadCSS=t,e.grunticon=n})(this);
+            grunticon(["/assets/dist/img/icons/icons.data.svg.css", "/assets/dist/img/icons/icons.data.png.css", "/assets/dist/img/icons/icons.fallback.css"]);
+        </script>
+        <noscript><link href="/assets/dist/img/icons/icons.fallback.css" rel="stylesheet"></noscript>
     <!-- /End Grunticon detection & injection script -->
 </head>
 
 <body>
+
+    <div class="topnav">
+      <div class="container">
+        <div class="logo-nav">
+          <a href="#">
+            <span class="icon-builtvisible icon-logo" alt=""></span>
+          </a>
+        </div>
+        <div class="links">
+        <a href="#" id="toggle-menu"><span class="icon-burger icon-menu"></span></a>
+        <div id="menu" class="menu">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href=""><span class="icon-social-facebook icon-small"></span></a>
+            <a href=""><span class="icon-social-twitter icon-small"></span></a>
+            <a target="_blank" href=""><span class="icon-social-linkedin icon-small"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Title page -->
     <div class="sg-page sg-page--start">
         <div class="l-container">
@@ -72,56 +57,57 @@
     <div class="sg-page">
         <div class="l-container">
             <h2 class="sg-sectionHeading">Logo</h2>
+            <div class="icon-huge icon-builtvisible"></div>
         </div>
     </div>
     <!-- Swatches -->
     <div class="sg-page">
         <div class="l-container">
             <h2 class="sg-sectionHeading">Swatches</h2>
-            <ul class="l-blockGrid l-blockGrid--3up l-blockGrid--2up--narrow">
-                <li>
+            <ul class="col-group">
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-primary">
                         <div class="sg-swatch-color"></div>
                         <code>$color-primary</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-secondary">
                         <div class="sg-swatch-color"></div>
                         <code>$color-secondary</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-highlight">
                         <div class="sg-swatch-color"></div>
                         <code>$color-highlight</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-text">
                         <div class="sg-swatch-color"></div>
                         <code>$color-text</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-background">
                         <div class="sg-swatch-color"></div>
                         <code>$color-bg</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-border">
                         <div class="sg-swatch-color"></div>
                         <code>$color-border</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-link">
                         <div class="sg-swatch-color"></div>
                         <code>$color-link-default</code>
                     </div>
                 </li>
-                <li>
+                <li class="col-mb-4 col-6 col-dt-2">
                     <div class="sg-swatch sg-color-link-hover">
                         <div class="sg-swatch-color"></div>
                         <code>$color-link-hover</code>
@@ -229,47 +215,48 @@
         </div>
     </div>
 
-
+    <!-- Grids -->
     <div class="sg-page">
         <div class="l-container">
+        <h2 class="sg-sectionHeading">Grids</h2>
             <div class="section testgrid">
 		
-			<div class="col-group">
+		<div class="col-group">
 
-				<div class="col-mb-4 col-6 col-dt-10"><p>&nbsp;</p></div>
-				<div class="col-mb-8 col-3 col-dt-2"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-2 col-3 col-dt-3"><p>&nbsp;</p></div>
-				<div class="col-mb-10 col-8 col-dt-3"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-4 col-4 col-dt-6"><p>&nbsp;</p></div>
-				<div class="col-mb-4 col-2 col-dt-4"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-4 col-6 col-dt-2"><p>&nbsp;</p></div>
-				<div class="col-mb-6 col-4 col-dt-6"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-3 col-3 col-dt-7"><p>&nbsp;</p></div>
-				<div class="col-mb-3 col-7 col-dt-5"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-2 col-2 col-dt-8"><p>&nbsp;</p></div>
-				<div class="col-mb-8 col-4 col-dt-4"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-2 col-8 col-dt-5"><p>&nbsp;</p></div>
-				<div class="col-mb-6 col-5 col-dt-7"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-4 col-7 col-dt-4"><p>&nbsp;</p></div>
-				<div class="col-mb-2 col-2 col-dt-8"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-8 col-2 col-dt-3"><p>&nbsp;</p></div>
-				<div class="col-mb-4 col-4 col-dt-3"><p>&nbsp;</p></div>
-				
-				<div class="col-mb-3 col-4 col-dt-6"><p>&nbsp;</p></div>
-				<div class="col-mb-9 col-6 col-dt-8"><p>&nbsp;</p></div>
+			<div class="col-mb-4 col-6 col-dt-10"><p>&nbsp;</p></div>
+			<div class="col-mb-8 col-3 col-dt-2"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-2 col-3 col-dt-3"><p>&nbsp;</p></div>
+			<div class="col-mb-10 col-8 col-dt-3"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-4 col-4 col-dt-6"><p>&nbsp;</p></div>
+			<div class="col-mb-4 col-2 col-dt-4"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-4 col-6 col-dt-2"><p>&nbsp;</p></div>
+			<div class="col-mb-6 col-4 col-dt-6"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-3 col-3 col-dt-7"><p>&nbsp;</p></div>
+			<div class="col-mb-3 col-7 col-dt-5"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-2 col-2 col-dt-8"><p>&nbsp;</p></div>
+			<div class="col-mb-8 col-4 col-dt-4"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-2 col-8 col-dt-5"><p>&nbsp;</p></div>
+			<div class="col-mb-6 col-5 col-dt-7"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-4 col-7 col-dt-4"><p>&nbsp;</p></div>
+			<div class="col-mb-2 col-2 col-dt-8"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-8 col-2 col-dt-3"><p>&nbsp;</p></div>
+			<div class="col-mb-4 col-4 col-dt-3"><p>&nbsp;</p></div>
+			
+			<div class="col-mb-3 col-4 col-dt-6"><p>&nbsp;</p></div>
+			<div class="col-mb-9 col-6 col-dt-8"><p>&nbsp;</p></div>
 
-				<div class="col-mb-7 col-3 col-dt-2"><p>&nbsp;</p></div>
-				<div class="col-mb-5 col-3 col-dt-2"><p>&nbsp;</p></div>
-				
-			</div>
+			<div class="col-mb-7 col-3 col-dt-2"><p>&nbsp;</p></div>
+			<div class="col-mb-5 col-3 col-dt-2"><p>&nbsp;</p></div>
+			
+		</div>
 
 	</div>
         </div>
@@ -397,54 +384,26 @@
                     <code>.icon-social-twitter</code>
                 </li>
                 <li>
-                    <div class="icon-sg icon-social-pinterest"></div>
-                    <code>.icon-social-pinterest</code>
-                </li>
-                <li>
                     <div class="icon-sg icon-social-facebook"></div>
                     <code>.icon-social-facebook</code>
                 </li>
                 <li>
-                    <div class="icon-sg icon-social-youtube"></div>
-                    <code>.icon-social-youtube</code>
-                </li>
-                <li>
-                    <div class="icon-sg icon-email"></div>
-                    <code>.icon-email</code>
+                    <div class="icon-sg icon-social-email"></div>
+                    <code>.icon-social-email</code>
                 </li>
             </ul>
-            <h3 class="sg-interfaceType sg-interfaceType--subtle">Favicons</h3>
-            <div class="sg-favicon">
-                <img src="http://i.imgur.com/hoxPrcd.png" alt="" width="16">
-                <code>16x16</code>
-            </div>
-            <div class="sg-favicon">
-                <img src="http://i.imgur.com/9bZyqGl.png" alt="" width="32">
-                <code>32x32</code>
-            </div>
-            <div class="sg-favicon">
-                <img src="http://i.imgur.com/eq7Utng.png" alt="" width="60">
-                <code>60x60</code>
-            </div>
-            <div class="sg-favicon">
-                <img src="http://i.imgur.com/hDxUWMa.png" alt="" width="152">
-                <code>152x152</code>
-            </div>
         </div>
     </div>
     <!-- Please add more to this to keep your styleguide useful -->
     <!-- Add more here :) -->
     <!-- <div class="sg-page">
-			<div class="l-container">
-				<h2 class="sg-sectionHeading">More stuff</h2>
-
-			</div>
-		</div> -->
+                <div class="l-container">
+                    <h2 class="sg-sectionHeading">More stuff</h2>
+                </div>
+            </div> -->
     <footer class="sg-footer text-centre sg-interfaceType">
         <div class="l-container">
-            <img src="http://i.imgur.com/LaKkj7X.png" alt="Kickoff logo">
-            <br> This styleguide is generated by the <a href="http://trykickoff.github.io">Kickoff</a> framework.
-            <br> Find out more about <a href="http://trykickoff.github.io">Kickoff</a>.
+            <span class="icon-builtvisible icon-large"></span>
         </div>
     </footer>
 </body>

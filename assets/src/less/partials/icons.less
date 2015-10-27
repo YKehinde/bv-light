@@ -1,5 +1,9 @@
 /*
    Icons
+
+   Use by just adding "icon-*name*" to element in addition to a size
+   i.e. 
+        <div class="icon-social-facebook icon-large"></div>
    ========================================================================== */
 [class^="icon-"], [class*=" icon-"] {
     speak: none;
@@ -7,14 +11,33 @@
     background-position: center center;
 }
 
+.icon-huge {
+    display: block;
+    width: 240px;
+    height: 240px;
+}
+
 .icon-large {
     display: block;
-    position: relative;
     width: 120px;
     height: 120px;
 }
 
 .icon-small {
+    display: block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.icon-logo {
+    display: block;
+    height: 50px;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.icon-burger {
     display: inline-block;
     width: 25px;
     height: 25px;

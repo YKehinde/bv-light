@@ -36,7 +36,7 @@
 		}
 
 		@for @i from 1 to @grid-column-count + 1 {
-			&.l-blockGrid--#{@i}up--narrow > li {
+			&.l-blockGrid--@{i}up--narrow > li {
 				width: percentage(1 / @i);
 				display: block;
 				height: auto;
@@ -54,7 +54,7 @@
 
 		// Wide block-grid
 		@for @i from 1 to @grid-column-count + 1 {
-			&.l-blockGrid--#{@i}up > li {
+			&.l-blockGrid--@{i}up > li {
 				width: percentage(1 / @i);
 			}
 		}

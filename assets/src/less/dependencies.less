@@ -14,7 +14,7 @@
 // but we should not need them if autoprefixer is being used
 // See mixins/css3.scss for the full list
 // @import "functions/functions";
-// @import "mixins/mixins";
+@import "mixins/mixins";
 
 
 
@@ -26,14 +26,11 @@
 @import "color-palette";
 @import "variables";
 
-
-
-
 // CSS Reset
 @import "reset";
 
 // Global typography styles
-// @import "typography";
+@import "typography";
 
 
 /**
@@ -42,6 +39,12 @@
  * 
  */
 @import "partials/components/buttons";
+@import "partials/components/fluid-grid";
+@import "partials/components/scrollbars";
+@import "partials/components/lists";
+@import "partials/components/media-object";
+@import "partials/components/tables";
+@import "partials/components/topnav";
 
 
 /**
@@ -51,8 +54,8 @@
  * Example partial for masthead & footer
  * Icons - used in conjunction with grunticon
  */
-@import "global";
 @import "partials/masthead";
+@import "global";
 @import "partials/footer";
 @import "partials/icons";
 
@@ -70,6 +73,7 @@
  * =================================
  */
 // @import "helper-classes";
+// @import "";
 
 
 /**

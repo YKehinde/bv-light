@@ -1,6 +1,28 @@
 /**
  * Top Nav
  * =================================
+    Usage
+
+     <div class="topnav">
+      <div class="container">
+        <div class="logo-nav">
+          <a href="#">
+            <span class="icon-builtvisible icon-logo" alt=""></span>
+          </a>
+        </div>
+        <div class="links">
+        <a href="#" id="toggle-menu"><span class="icon-burger icon-menu"></span></a>
+        <div id="menu" class="menu">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href=""><span class="icon-social-facebook icon-small"></span></a>
+            <a href=""><span class="icon-social-twitter icon-small"></span></a>
+            <a target="_blank" href=""><span class="icon-social-linkedin icon-small"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
  */
 
 .topnav {
@@ -87,7 +109,7 @@
     display: none
 }
 
-@include respond-min($bp-mid) {
+@media @md-mid {
     .menu,
     .topnav {
         line-height: 64px
