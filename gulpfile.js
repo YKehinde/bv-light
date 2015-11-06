@@ -97,9 +97,9 @@ gulp.task('copy-files', function() {
 
 // Gulp concat and uglify js
 gulp.task('js', function() {
-	gulp.src('./assets/src/js/libs/*.js')
-	   .pipe(uglify())	   
-       .pipe(gulp.dest('./assets/dist/js/libs'));
+	// gulp.src('./assets/src/js/libs/*.js')
+	//    .pipe(uglify())	   
+ //       .pipe(gulp.dest('./assets/dist/js/libs'));
     return gulp.src([
     	'./node_modules/jquery/src',
     	paths.js.src + 'helpers/console.js',
@@ -112,6 +112,7 @@ gulp.task('js', function() {
         	outSourceMap: true
         	// beautify: true
         }))
+        .on('error', onError)
         .pipe(concat('script.min.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.js.dest));
@@ -125,6 +126,7 @@ gulp.task('less', function() {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
+        .on('error', onError)
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -149,6 +151,11 @@ gulp.task('styleguide', function(){
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
 })
+
+function onError(err) {
+                console.log(err);
+                this.emit('end');
+}
 
 // BrowserSync - local server
 gulp.task('serve', ['less', 'js', 'icons', 'copy-files'], function() {
