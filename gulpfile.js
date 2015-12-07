@@ -13,10 +13,13 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     imagemin = require('gulp-imagemin'),
     less = require('gulp-less'),
+    minifyCss = require('gulp-minify-css'),
     mozjpeg = require('imagemin-mozjpeg'),
     newer = require('gulp-newer'),
     path = require('path'),
+    plumber = require('gulp-plumber'),
     pngquant = require('imagemin-pngquant'),
+    rename = require('gulp-rename');
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify');
 
@@ -123,14 +126,15 @@ gulp.task('js', function() {
 gulp.task('less', function() {
     return gulp.src(paths.styles.src + 'bv-light.less')
         .pipe(sourcemaps.init())
-        .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')]
+        .pipe($.plumber(function(error) {
+            $.util.log($.util.colors.red('Error (' + error.plugin + '): ' + error.message));
+            this.emit('end');
         }))
-        .on('error', onError)
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe($.newer(paths.styles.dest))
+        .pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
+        .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+        .pipe($.rename({suffix: '.min'}))
+        .pipe($.minifyCss({advanced: false}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
