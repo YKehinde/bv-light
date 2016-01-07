@@ -1,32 +1,41 @@
 // Clearfix
 .clearfix {
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 // REM
 // .font-size();
 .font-size(@sizeValue) {
-  @remValue: @sizeValue;
-  @pxValue: (@sizeValue * 10);
-  font-size: ~"@{pxValue}px"; 
-  font-size: ~"@{remValue}rem";
+    @remValue: @sizeValue;
+    @pxValue: (@sizeValue * 10);
+    font-size: ~"@{pxValue}px";
+    font-size: ~"@{remValue}rem";
 }
 
 // Text selection
 .text-selection(@color-selection, @color-selection-bg) {
-	::-moz-selection {
-		color: @color-selection;
-		background: @color-selection-bg;
-		text-shadow: none;
-	}
+    ::-moz-selection {
+        color: @color-selection;
+        background: @color-selection-bg;
+        text-shadow: none;
+    }
+    ::selection {
+        color: @color-selection;
+        background: @color-selection-bg;
+        text-shadow: none;
+    }
+}
 
-	::selection {
-		color: @color-selection;
-		background: @color-selection-bg;
-		text-shadow: none;
-	}
+a,
+button,
+input,
+select,
+textarea,
+label,
+summary {
+    touch-action: manipulation;
 }
