@@ -65,6 +65,25 @@ The BV house styles have been written using the following coding standards, whic
 
 ### Repo structure ###
 
+ .
+├── gulpfile.js
+├── gulp-configs
+├── assets
+│   ├── dist
+│   │   ├── css
+│   │   ├── img
+│   │   │   └── icons
+│   │   └── js
+│   ├── src
+│   │   ├── img
+│   │   │   └── icons
+│   │   ├── js
+│   │   └── less
+│   └── temp
+│       └── icons
+├── [files ...]
+└── styleguide
+
 * always have a README, include minimum information
 	* dev URL
 	* live URL
