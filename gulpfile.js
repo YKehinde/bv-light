@@ -13,8 +13,8 @@ gulpicon = require("gulpicon/tasks/gulpicon"),
 gutil = require('gulp-util'),
 imagemin = require('gulp-imagemin'),
 less = require('gulp-less'),
-minifyCss = require('gulp-minify-css'),
 mozjpeg = require('imagemin-mozjpeg'),
+nano = require('gulp-cssnano'),
 newer = require('gulp-newer'),
 path = require('path'),
 plumber = require('gulp-plumber'),
@@ -105,7 +105,7 @@ gulp.task('js', function() {
 		paths.js.src + '*.js'
 		])
 		.pipe(sourcemaps.init())
-		.pipe(uglify('script.min.js', 
+		.pipe(uglify( 
 		{
 			compress: true,
 			outSourceMap: true
@@ -113,7 +113,7 @@ gulp.task('js', function() {
 		}))
 		.on('error', onError)
 		.pipe(concat('script.min.js'))
-		.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(paths.js.dest));
 		// .pipe(browserSync.stream());
 });
@@ -125,7 +125,7 @@ gulp.task('js-prod', function() {
 		paths.js.src + 'helpers/console.js',
 		paths.js.src + '*.js'
 		])
-		.pipe(uglify('script.min.js', 
+		.pipe(uglify( 
 		{
 			compress: true,
 			outSourceMap: true
@@ -147,8 +147,8 @@ gulp.task('less', function() {
 		.pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe($.rename({suffix: '.min'}))
-		.pipe($.minifyCss({advanced: false}))
-		.pipe(sourcemaps.write())
+		.pipe(nano())
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(paths.styles.dest))
 		.pipe(browserSync.stream());
 });
@@ -164,7 +164,7 @@ gulp.task('less-prod', function(){
 		.pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe($.rename({suffix: '.min'}))
-		.pipe($.minifyCss({advanced: false}))
+		.pipe(nano())
 		.pipe(gulp.dest(paths.styles.dest));
 });
 
@@ -179,14 +179,14 @@ gulp.task('styleguide', function(){
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(paths.styles.dest))
 		.pipe(browserSync.stream());
 })
 
 function onError(err) {
-				console.log(err);
-				this.emit('end');
+	console.log(err);
+	this.emit('end');
 }
 
 // BrowserSync - local server
